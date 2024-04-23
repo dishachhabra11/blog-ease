@@ -1,8 +1,9 @@
 import {z} from 'zod';
 
  export const signup_schema=z.object({
+    name:z.string(),
     email:z.string().email(),
-    password:z.string().min(8).max(16),  
+    password:z.string().min(6).max(16),  
 })
 
 
