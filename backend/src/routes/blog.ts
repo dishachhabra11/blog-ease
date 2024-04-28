@@ -139,6 +139,7 @@ blogrouter.get('/:id', async (c) => {
             name:true,
           },
         },
+        date:true,
       }
     });
     return c.json(blog);

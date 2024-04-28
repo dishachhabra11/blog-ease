@@ -1,5 +1,6 @@
 import Appbar from "../components/Appbar"
 import Blogcard from "../components/Blogcard"
+import Skeleton from "../components/Skeleton";
 import { useBlogs } from "../hooks"
 
 
@@ -8,7 +9,15 @@ const Blogs = () => {
   const {loading,blogs} =useBlogs();
   
  if(loading==true){
-  return <div>Loading...</div>
+  return <div className="flex justify-center  lg:max-w-screen-xl  sm:max-w-screen-md sm:px-5 cursor-pointer">
+  <div className="flex flex-col max-w-xl">
+    <Skeleton/>
+    <Skeleton/>
+    <Skeleton/>
+    <Skeleton/>
+    
+    </div>
+    </div>
  }
  
   return (
