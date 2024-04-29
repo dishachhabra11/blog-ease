@@ -2,7 +2,7 @@ import Appbar from "./Appbar";
 import { blog } from "../hooks";
 import { Avatar } from "./Blogcard";
 
-function convertMonth(number: string){
+export function convertMonth(number: string){
   if(number == "01"){
     return "January"
   }
@@ -50,7 +50,7 @@ function Fullblog({ blog }: { blog: blog }) {
       <div className="grid lg:grid-cols-12 sm:grid-cols-8 px-20 py-10 max-w-screen-xl ">
         <div className="col-span-8 ">
              <div className="text-4xl font-extrabold pb-3">{blog.title || ""}</div>
-             <div className="text-slate-500 mb-6">Posted on  { convertMonth(blog.date.split('-')[1])} {(blog.date.split('-')[2].split('T')[0].toString())} {blog.date.split('-')[0]}</div>
+             <div className="text-slate-500 mb-6">Posted on  {convertMonth(blog.date.split('-')[1])} {(blog.date.split('-')[2].split('T')[0].toString())} {blog.date.split('-')[0]}</div>
           
           <div>{blog.content}</div>
         </div>

@@ -1,5 +1,6 @@
 import Appbar from "../components/Appbar"
 import Blogcard from "../components/Blogcard"
+import { convertMonth } from "../components/Fullblog";
 import Skeleton from "../components/Skeleton";
 import { useBlogs } from "../hooks"
 
@@ -28,7 +29,9 @@ const Blogs = () => {
     <div className="flex flex-col max-w-xl">
       {
         blogs.map((blog)=>{
-          return <Blogcard authorname={blog.author.name ||"Anonymous"} publisheddate="Dec 3,2023" title={blog.title} content={blog.content} id={blog.id}/>
+          return <Blogcard authorname={blog.author.name ||"Anonymous"} publisheddate={
+            convertMonth(blog.date.split('-')[1])+" "+blog.date.split('-')[2].split('T')[0]+" "+ blog.date.split('-')[0] 
+          } title={blog.title} content={blog.content} id={blog.id}/>
         })
       }
     

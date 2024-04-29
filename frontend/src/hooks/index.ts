@@ -10,7 +10,7 @@ import { BACKEND_URL } from "../config"
      "author": {
          "name": string,
      }
-     "date":string
+     "date":string,
     }
     export const useBlog=({id}:{id:string})=>{
       
@@ -45,6 +45,8 @@ export const useBlogs=()=>{
             "author": {
                 "name": string,
             }
+            "date":string
+            
     }
 
     const [blogs,setblogs]=useState<blog[]>([]);

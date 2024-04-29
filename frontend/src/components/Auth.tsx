@@ -15,10 +15,10 @@ const Auth = ({type}:{type: "signup" | "signin"}) => {
       const res = await axios.post(`${BACKEND_URL}${type=="signup" ?"/user/signup": "/user/signin"}`, postdata);
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
-      navigate("/blogs");
+      navigate("/");
     } catch (error) {
       console.log(error);
-      alert("error wh sending data");
+      alert("Invalid credentials");
     }
   };
   return (

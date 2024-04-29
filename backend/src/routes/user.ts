@@ -74,3 +74,23 @@ userrouter.post("/signin", async (c) => {
   const token = await sign({ id: user.id }, c.env.JWT_SECRET);
   return c.json({ token });
 });
+
+userrouter.get('/userid/:id',async (c)=>{
+
+  
+
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  const id = c.req.param('id');
+  const user=await prisma.user.findUnique({
+    where:{
+      id:(id)
+    }
+  });
+  return c.json({
+    name:user?.name||"Anonymous",
+  });
+
+})

@@ -34,6 +34,7 @@ blogrouter.use("/*", async (c, next) => {
  }
  catch(err){
   c.status(403);
+ 
   return c.json({ error: "can not authenticate you" });
  }
 });
@@ -106,7 +107,8 @@ blogrouter.get("/bulk", async (c) => {
       select:{
       name:true,
     },
-  }
+  },
+  date:true,
   }
     }
   );

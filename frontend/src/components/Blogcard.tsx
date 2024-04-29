@@ -7,6 +7,7 @@ interface BlogcardProps {
     title: string;
     content: string;
     
+    
 }
 
 function Blogcard({authorname, publisheddate, title, content,id}: BlogcardProps) {
